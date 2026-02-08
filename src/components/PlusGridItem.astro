@@ -1,0 +1,15 @@
+---
+import PlusGridIcon from './PlusGridIcon.astro'
+
+interface Props {
+  class?: string
+}
+const { class: className } = Astro.props
+---
+<div class:list={[className, 'group/item relative']}>
+  <PlusGridIcon placement="top left" class="hidden group-first/item:block" />
+  <PlusGridIcon placement="top right" />
+  <PlusGridIcon placement="bottom left" class="hidden group-first/item:group-last/row:block" />
+  <PlusGridIcon placement="bottom right" class="hidden group-last/row:block" />
+  <slot />
+</div>

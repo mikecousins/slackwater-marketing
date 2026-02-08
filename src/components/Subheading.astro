@@ -1,0 +1,11 @@
+---
+interface Props {
+  as?: string
+  dark?: boolean
+  class?: string
+}
+const { as: Tag = 'h2', dark = false, class: className } = Astro.props
+---
+<Tag data-dark={dark ? 'true' : undefined} class:list={[className, 'font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase data-dark:text-gray-400']}>
+  <slot />
+</Tag>

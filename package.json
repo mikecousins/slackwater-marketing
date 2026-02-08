@@ -2,40 +2,35 @@
   "name": "foos-marketing",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate && rm ./src/sanity/extract.json"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/react": "^4.0.0",
+    "@astrojs/sitemap": "^3.2.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@sanity/icons": "^3.7.0",
-    "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.82.0",
+    "astro": "^5.0.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "feed": "^4.2.2",
     "framer-motion": "^12.6.3",
-    "next": "15.2.4",
-    "next-sanity": "^9.9.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-use-measure": "^2.1.7",
-    "sanity": "^3.82.0"
+    "react-use-measure": "^2.1.7"
   },
   "devDependencies": {
-    "@sanity/client": "^6.28.4",
     "@tailwindcss/postcss": "^4.1.0",
-    "@types/node": "^22.13.17",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "15.2.4",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.0",
@@ -46,10 +41,6 @@
     "overrides": {
       "@types/react": "19.0.12",
       "@types/react-dom": "19.0.4"
-    },
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp"
-    ]
+    }
   }
 }

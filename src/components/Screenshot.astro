@@ -1,0 +1,13 @@
+---
+interface Props {
+  width: number
+  height: number
+  src: string
+  class?: string
+}
+const { width, height, src, class: className } = Astro.props
+---
+<div style={`--width: ${width}; --height: ${height}`} class:list={[className, 'relative aspect-[var(--width)/var(--height)] [--radius:var(--radius-xl)]']}>
+  <div class="absolute -inset-[var(--padding)] rounded-[calc(var(--radius)+var(--padding))] ring-1 shadow-xs ring-black/5 [--padding:--spacing(2)]" />
+  <img alt="" src={src} class="h-full rounded-[var(--radius)] ring-1 shadow-2xl ring-black/10" />
+</div>

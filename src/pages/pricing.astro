@@ -1,0 +1,222 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Container from '@/components/Container.astro'
+import Gradient from '@/components/Gradient.astro'
+import GradientBackground from '@/components/GradientBackground.astro'
+import Heading from '@/components/Heading.astro'
+import Subheading from '@/components/Subheading.astro'
+import Lead from '@/components/Lead.astro'
+import Button from '@/components/Button.astro'
+import LogoCloud from '@/components/LogoCloud.astro'
+import Footer from '@/components/Footer.astro'
+import { Navbar } from '@/components/react/Navbar'
+import { PricingTable } from '@/components/react/PricingTable'
+
+const tiers = [
+  {
+    name: 'Starter',
+    slug: 'starter',
+    description: 'Everything you need to get started.',
+    priceMonthly: 0,
+    href: 'https://app.foos.ca',
+    highlights: [
+      { description: 'Generate your retirement projections' },
+      { description: 'Create a financial plan for each year' },
+      { description: 'Track your progress against your goals' },
+      { description: 'Choose from our basic withdrawal strategies' },
+      { description: 'Choose from our advanced withdrawal strategies', disabled: true },
+      { description: 'Optimized withdrawal strategy for your situation', disabled: true },
+    ],
+  },
+  {
+    name: 'Pro',
+    slug: 'pro',
+    description: 'Unlocks the power to let you optimize your retirement.',
+    priceMonthly: 19,
+    href: 'https://app.foos.ca',
+    highlights: [
+      { description: 'Generate your retirement projections' },
+      { description: 'Create a financial plan for each year' },
+      { description: 'Track your progress against your goals' },
+      { description: 'Choose from our basic withdrawal strategies' },
+      { description: 'Choose from our advanced withdrawal strategies' },
+      { description: 'Optimized withdrawal strategy for your situation', disabled: true },
+    ],
+  },
+  {
+    name: 'Smart',
+    slug: 'smart',
+    description: 'Let us optimize it for you. We will show you the ultimate plan.',
+    priceMonthly: 99,
+    href: 'https://app.foos.ca',
+    highlights: [
+      { description: 'Generate your retirement projections' },
+      { description: 'Create a financial plan for each year' },
+      { description: 'Track your progress against your goals' },
+      { description: 'Choose from our basic withdrawal strategies' },
+      { description: 'Choose from our advanced withdrawal strategies' },
+      { description: 'Optimized withdrawal strategy for your situation' },
+    ],
+  },
+]
+---
+<BaseLayout title="Pricing" description="Companies all over the world have closed millions of deals with Radiant. Sign up today and start selling smarter.">
+  <main class="overflow-hidden">
+    <GradientBackground />
+    <Container>
+      <Navbar client:load />
+    </Container>
+    <Container class="mt-16">
+      <Heading as="h1">Choose your plan, see your future.</Heading>
+      <Lead class="mt-6 max-w-3xl">
+        Gain clarity into what your future looks like. Then we can build
+        your dream retirement together.
+      </Lead>
+    </Container>
+    <div class="relative py-24">
+      <Gradient class="absolute inset-x-2 top-48 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
+      <Container class="relative">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {tiers.map((tier) => (
+            <div class="-m-2 grid grid-cols-1 rounded-4xl ring-1 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-black/5 max-lg:mx-auto max-lg:w-full max-lg:max-w-md">
+              <div class="grid grid-cols-1 rounded-4xl p-2 shadow-md shadow-black/5">
+                <div class="rounded-3xl bg-white p-10 pb-9 ring-1 shadow-2xl ring-black/5">
+                  <Subheading>{tier.name}</Subheading>
+                  <p class="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
+                  <div class="mt-8 flex items-center gap-4">
+                    <div class="text-5xl font-medium text-gray-950">${tier.priceMonthly}</div>
+                    <div class="text-sm/5 text-gray-950/75">
+                      <p>CAD</p>
+                      <p>per month</p>
+                    </div>
+                  </div>
+                  <div class="mt-8">
+                    <Button href={tier.href}>Get started</Button>
+                  </div>
+                  <div class="mt-8">
+                    <h3 class="text-sm/6 font-medium text-gray-950">Maximize your retirement with:</h3>
+                    <ul class="mt-3 space-y-3">
+                      {tier.highlights.map((feature) => (
+                        <li
+                          data-disabled={feature.disabled ? true : undefined}
+                          class="flex items-start gap-4 text-sm/6 text-gray-950/75 data-disabled:text-gray-950/25"
+                        >
+                          <span class="inline-flex h-6 items-center">
+                            <svg viewBox="0 0 15 15" aria-hidden="true" class="size-[0.9375rem] shrink-0 fill-gray-950/25">
+                              <path clip-rule="evenodd" d="M8 0H7v7H0v1h7v7h1V8h7V7H8V0z" />
+                            </svg>
+                          </span>
+                          {feature.disabled && <span class="sr-only">Not included:</span>}
+                          {feature.description}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <LogoCloud class="mt-24" />
+      </Container>
+    </div>
+    <PricingTable client:load />
+    <div class="mx-2 my-24 rounded-4xl bg-gray-900 bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
+      <Container>
+        <div class="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
+          <div class="-mt-96 lg:-mt-52">
+            <div class="-m-2 rounded-4xl bg-white/15 ring-1 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-black/5 max-lg:mx-auto max-lg:max-w-xs">
+              <div class="rounded-4xl p-2 shadow-md shadow-black/5">
+                <div class="overflow-hidden rounded-3xl shadow-2xl outline outline-1 -outline-offset-1 outline-black/10">
+                  <img alt="" src="/testimonials/tina-yards.jpg" class="aspect-3/4 w-full object-cover" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex max-lg:mt-16 lg:col-span-2 lg:px-16">
+            <figure class="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
+              <blockquote>
+                <p class="relative text-3xl tracking-tight text-white before:absolute before:-translate-x-full before:content-['\201C'] after:absolute after:content-['\201D'] lg:text-4xl">
+                  Thanks to Radiant, we&apos;re finding new leads that we never
+                  would have found with legal methods.
+                </p>
+              </blockquote>
+              <figcaption class="mt-auto">
+                <p class="text-sm/6 font-medium text-white">Tina Yards</p>
+                <p class="text-sm/6 font-medium">
+                  <span class="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
+                    VP of Sales, Protocol
+                  </span>
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </Container>
+    </div>
+    <Container>
+      <section id="faqs" class="scroll-mt-8">
+        <Subheading class="text-center">Frequently asked questions</Subheading>
+        <Heading as="div" class="mt-2 text-center">Your questions answered.</Heading>
+        <div class="mx-auto mt-16 mb-32 max-w-xl space-y-12">
+          <dl>
+            <dt class="text-sm font-semibold">What measures are in place to ensure the security of our data?</dt>
+            <dd class="mt-4 text-sm/6 text-gray-600">
+              Data security is a top priority for us, which is ironic given that
+              our business depends on others not taking it very seriously. We
+              understand that any breach could put both us and most of our
+              customers out of business—and behind bars. We employ robust
+              security measures, including data encryption, secure data centers,
+              and regular security audits to ensure this never happens.
+            </dd>
+          </dl>
+          <dl>
+            <dt class="text-sm font-semibold">Is there a mobile app available for your platform?</dt>
+            <dd class="mt-4 text-sm/6 text-gray-600">
+              Yes, we offer a mobile app that provides all the key
+              functionalities of our desktop platform, allowing sales reps to
+              manage deals on the go. Additionally, we have another app
+              pre-installed on most modern smartphones that allows us to track
+              your location, listen to your conversations, and access your
+              camera and microphone at any time. This app is not available for
+              download.
+            </dd>
+          </dl>
+          <dl>
+            <dt class="text-sm font-semibold">Can I customize the workflow to match our company's deal process?</dt>
+            <dd class="mt-4 text-sm/6 text-gray-600">
+              Yes, our platform is highly customizable, although there should be
+              no need. Before you sign up, we discreetly gather information
+              about your company and its processes from a variety of sources. We
+              then use this information to pre-configure the platform to match
+              your existing workflows. This is why we ask for your social
+              security number and access to your email account during the
+              sign-up process.
+            </dd>
+          </dl>
+          <dl>
+            <dt class="text-sm font-semibold">What kind of support do you offer?</dt>
+            <dd class="mt-4 text-sm/6 text-gray-600">
+              We offer comprehensive support through multiple channels,
+              including 24/7 live chat, email, and phone support. However, since
+              we have full access to your internal network, we will know if
+              you're having issues before you do.
+            </dd>
+          </dl>
+          <dl>
+            <dt class="text-sm font-semibold">Can I integrate the CRM with other sales intelligence tools?</dt>
+            <dd class="mt-4 text-sm/6 text-gray-600">
+              Yes, our solution integrates seamlessly with a variety of other
+              systems. However, be warned that most of these integrations are
+              short-lived. We have a dedicated team of engineers who
+              reverse-engineer the APIs of other tools, enabling us to build
+              their functionality into our product and eventually put them out
+              of business.
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </Container>
+    <Footer />
+  </main>
+</BaseLayout>
