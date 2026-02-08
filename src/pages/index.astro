@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Container from '@/components/Container.astro'
+import Gradient from '@/components/Gradient.astro'
+import GradientBackground from '@/components/GradientBackground.astro'
+import Heading from '@/components/Heading.astro'
+import Subheading from '@/components/Subheading.astro'
+import Button from '@/components/Button.astro'
+import Screenshot from '@/components/Screenshot.astro'
+import LogoCloud from '@/components/LogoCloud.astro'
+import Footer from '@/components/Footer.astro'
+import { Navbar } from '@/components/react/Navbar'
+import { BentoSection } from '@/components/react/BentoSection'
+import { DarkBentoSection } from '@/components/react/DarkBentoSection'
+import { Testimonials } from '@/components/react/Testimonials'
+---
+<BaseLayout description="Foos helps you sell more by revealing sensitive information about your customers.">
+  <div class="overflow-hidden">
+    <div class="relative">
+      <Gradient class="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
+      <Container class="relative">
+        <Navbar
+          client:load
+          bannerText="Foos raises $100M Series A from Tailwind Ventures"
+          bannerHref="/blog/radiant-raises-100m-series-a-from-tailwind-ventures"
+        />
+        <div class="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
+          <h1 class="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
+            See your future.
+          </h1>
+          <p class="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">
+            Foos let&apos;s you prepare for and maximize your finances in retirement. Live your best life.
+          </p>
+          <div class="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
+            <Button href="#">Get started</Button>
+            <Button variant="secondary" href="/pricing">See pricing</Button>
+          </div>
+        </div>
+      </Container>
+    </div>
+    <main>
+      <Container class="mt-10">
+        <LogoCloud />
+      </Container>
+      <div class="bg-linear-to-b from-white from-50% to-gray-100 py-32">
+        <div class="overflow-hidden">
+          <Container class="pb-24">
+            <Heading as="h2" class="max-w-3xl">
+              A snapshot of your entire sales pipeline.
+            </Heading>
+            <Screenshot
+              width={1216}
+              height={768}
+              src="/screenshots/app.png"
+              class="mt-16 h-[36rem] sm:h-auto sm:w-[76rem]"
+            />
+          </Container>
+        </div>
+        <BentoSection client:visible />
+      </div>
+      <DarkBentoSection client:visible />
+    </main>
+    <Testimonials client:visible />
+    <Footer />
+  </div>
+</BaseLayout>

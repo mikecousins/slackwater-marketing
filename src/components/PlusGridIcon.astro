@@ -1,0 +1,13 @@
+---
+interface Props {
+  class?: string
+  placement: 'top left' | 'top right' | 'bottom left' | 'bottom right'
+}
+const { class: className, placement } = Astro.props
+const [yAxis, xAxis] = placement.split(' ')
+const yClass = yAxis === 'top' ? '-top-2' : '-bottom-2'
+const xClass = xAxis === 'left' ? '-left-2' : '-right-2'
+---
+<svg viewBox="0 0 15 15" aria-hidden="true" class:list={[className, 'absolute size-[15px] fill-black/10', yClass, xClass]}>
+  <path d="M8 0H7V7H0V8H7V15H8V8H15V7H8V0Z" />
+</svg>
