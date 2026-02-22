@@ -4,7 +4,6 @@ import {
   DisclosurePanel,
 } from '@headlessui/react'
 import { Bars2Icon } from '@heroicons/react/24/solid'
-import { RocketLaunchIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
 
@@ -58,7 +57,11 @@ function PlusGridItem({
 function Logo() {
   return (
     <div className="flex items-center gap-2">
-      <RocketLaunchIcon className="h-8 w-8 text-cyan-500" />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8 text-cyan-500">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v13M12 3C9 5.5 5.5 10 5 16h14c-.5-6-4-10.5-7-13Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 19.5c2-1.5 4.5-2 6-2s3 .5 3 .5 1.5-.5 3-.5 4 .5 6 2" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2 22c2-1.5 4.5-2 6-2s3 .5 4 .5 1.5-.5 3-.5 4 .5 7 2" />
+      </svg>
       <span className="text-3xl">Slackwater</span>
     </div>
   )
