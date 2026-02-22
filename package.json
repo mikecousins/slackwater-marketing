@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/mdx": "5.0.0-beta.8",
+    "@astrojs/react": "5.0.0-beta.3",
+    "@astrojs/sitemap": "3.6.1-beta.3",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
-    "astro": "^5.17.2",
+    "astro": "6.0.0-beta.14",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.19",
     "feed": "^5.2.0",

@@ -7,19 +7,19 @@ import Subheading from '@/components/Subheading.astro'
 import Button from '@/components/Button.astro'
 import Footer from '@/components/Footer.astro'
 import { Navbar } from '@/components/react/Navbar'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import dayjs from 'dayjs'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }))
 }
 
 const { post } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 ---
 <BaseLayout title={post.data.title} description={post.data.excerpt}>
   <main class="overflow-hidden">
