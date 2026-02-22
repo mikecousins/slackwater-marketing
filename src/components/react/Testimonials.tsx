@@ -15,44 +15,45 @@ import useMeasure, { type RectReadOnly } from 'react-use-measure'
 const testimonials = [
   {
     img: '/testimonials/tina-yards.jpg',
-    name: 'Tina Yards',
-    title: 'VP of Sales, Protocol',
+    name: 'Sarah Mitchell',
+    title: 'Retired Teacher, Ontario',
     quote:
-      'Thanks to Slackwater, we\'re finding new leads that we never would have found with legal methods.',
+      'Slackwater showed me I could retire two years earlier than I thought. The tax optimization alone is saving me thousands every year.',
   },
   {
     img: '/testimonials/conor-neville.jpg',
-    name: 'Conor Neville',
-    title: 'Head of Customer Success, TaxPal',
+    name: 'James Thornton',
+    title: 'Semi-Retired Engineer, BC',
     quote:
-      'Slackwater made undercutting all of our competitors an absolute breeze.',
+      'I used to lose sleep worrying about whether my savings would last. Now I check my Slackwater dashboard and know exactly where I stand.',
   },
   {
     img: '/testimonials/amy-chase.jpg',
-    name: 'Amy Chase',
-    title: 'Head of GTM, Pocket',
+    name: 'Linda Park',
+    title: 'Retired Nurse, Alberta',
     quote:
-      'We closed a deal in literally a few minutes because we knew their exact budget.',
+      'The withdrawal plan told me exactly which accounts to pull from each month. I had no idea the tax savings could be this significant.',
   },
   {
     img: '/testimonials/veronica-winton.jpg',
-    name: 'Veronica Winton',
-    title: 'CSO, Planeteria',
+    name: 'Robert Chen',
+    title: 'Planning for Retirement, Manitoba',
     quote:
-      'We\'ve managed to put two of our main competitors out of business in 6 months.',
+      'Being able to see how one more year of work changes my retirement income made the decision so much clearer.',
   },
   {
     img: '/testimonials/dillon-lenora.jpg',
-    name: 'Dillon Lenora',
-    title: 'VP of Sales, Detax',
-    quote: 'I was able to replace 80% of my team with Slackwater bots.',
+    name: 'Patricia Davies',
+    title: 'Recently Retired, Nova Scotia',
+    quote:
+      'The paycheque view in retirement mode is brilliant. It feels like I still get paid, just from my own savings.',
   },
   {
     img: '/testimonials/harriet-arron.jpg',
-    name: 'Harriet Arron',
-    title: 'Account Manager, Commit',
+    name: 'Michael Okafor',
+    title: 'Retired Business Owner, Ontario',
     quote:
-      'I\'ve smashed all my targets without having to speak to a lead in months.',
+      'Slackwater helped my wife and me coordinate our retirement withdrawals. The Smart plan is worth every penny.',
   },
 ]
 
@@ -151,8 +152,8 @@ function CallToAction() {
   return (
     <div>
       <p className="max-w-sm text-sm/6 text-gray-600">
-        Join the best sellers in the business and start using Slackwater to hit
-        your targets today.
+        Join thousands of Canadians using Slackwater to plan, optimize, and
+        enjoy their retirement.
       </p>
       <div className="mt-2">
         <a
@@ -188,10 +189,10 @@ export function Testimonials() {
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <div ref={setReferenceWindowRef}>
           <h2 className="font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase">
-            What everyone is saying
+            What our members are saying
           </h2>
           <h3 className="mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 sm:text-6xl">
-            Trusted by professionals.
+            Trusted by Canadians planning their future.
           </h3>
         </div>
       </div>
