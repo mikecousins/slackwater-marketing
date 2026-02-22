@@ -7,7 +7,6 @@ import Heading from '@/components/Heading.astro'
 import Subheading from '@/components/Subheading.astro'
 import Lead from '@/components/Lead.astro'
 import Button from '@/components/Button.astro'
-import LogoCloud from '@/components/LogoCloud.astro'
 import Footer from '@/components/Footer.astro'
 import { Navbar } from '@/components/react/Navbar'
 import { PricingTable } from '@/components/react/PricingTable'
@@ -17,50 +16,53 @@ const tiers = [
     name: 'Starter',
     slug: 'starter',
     description: 'Everything you need to get started.',
+    priceAnnual: 0,
     priceMonthly: 0,
     href: 'https://app.slackwater.ca',
     highlights: [
-      { description: 'Generate your retirement projections' },
-      { description: 'Create a financial plan for each year' },
-      { description: 'Track your progress against your goals' },
-      { description: 'Choose from our basic withdrawal strategies' },
-      { description: 'Choose from our advanced withdrawal strategies', disabled: true },
-      { description: 'Optimized withdrawal strategy for your situation', disabled: true },
+      { description: 'Retirement projections' },
+      { description: 'Basic financial plan' },
+      { description: 'Progress tracking' },
+      { description: 'Basic withdrawal strategies' },
+      { description: 'Advanced withdrawal strategies', disabled: true },
+      { description: 'Fully optimized withdrawal plan', disabled: true },
     ],
   },
   {
     name: 'Pro',
     slug: 'pro',
-    description: 'Unlocks the power to let you optimize your retirement.',
-    priceMonthly: 19,
+    description: 'Unlock advanced strategies that could save you ~$200K in taxes.',
+    priceAnnual: 50,
+    priceMonthly: 4,
     href: 'https://app.slackwater.ca',
     highlights: [
-      { description: 'Generate your retirement projections' },
-      { description: 'Create a financial plan for each year' },
-      { description: 'Track your progress against your goals' },
-      { description: 'Choose from our basic withdrawal strategies' },
-      { description: 'Choose from our advanced withdrawal strategies' },
-      { description: 'Optimized withdrawal strategy for your situation', disabled: true },
+      { description: 'Retirement projections' },
+      { description: 'Detailed financial plan' },
+      { description: 'Progress tracking' },
+      { description: 'Basic withdrawal strategies' },
+      { description: 'Advanced withdrawal strategies' },
+      { description: 'Fully optimized withdrawal plan', disabled: true },
     ],
   },
   {
     name: 'Smart',
     slug: 'smart',
-    description: 'Let us optimize it for you. We will show you the ultimate plan.',
-    priceMonthly: 99,
+    description: 'The ultimate plan — could save you $500K to $1M+ in taxes.',
+    priceAnnual: 200,
+    priceMonthly: 17,
     href: 'https://app.slackwater.ca',
     highlights: [
-      { description: 'Generate your retirement projections' },
-      { description: 'Create a financial plan for each year' },
-      { description: 'Track your progress against your goals' },
-      { description: 'Choose from our basic withdrawal strategies' },
-      { description: 'Choose from our advanced withdrawal strategies' },
-      { description: 'Optimized withdrawal strategy for your situation' },
+      { description: 'Retirement projections' },
+      { description: 'Detailed financial plan' },
+      { description: 'Progress tracking' },
+      { description: 'Basic withdrawal strategies' },
+      { description: 'Advanced withdrawal strategies' },
+      { description: 'Fully optimized withdrawal plan' },
     ],
   },
 ]
 ---
-<BaseLayout title="Pricing" description="Companies all over the world have closed millions of deals with Slackwater. Sign up today and start selling smarter.">
+<BaseLayout title="Pricing" description="Choose the Slackwater plan that fits your retirement goals. Start free and upgrade when you're ready to optimize.">
   <main class="overflow-hidden">
     <GradientBackground />
     <Container>
@@ -84,12 +86,15 @@ const tiers = [
                   <Subheading>{tier.name}</Subheading>
                   <p class="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
                   <div class="mt-8 flex items-center gap-4">
-                    <div class="text-5xl font-medium text-gray-950">${tier.priceMonthly}</div>
+                    <div class="text-5xl font-medium text-gray-950">${tier.priceAnnual}</div>
                     <div class="text-sm/5 text-gray-950/75">
                       <p>CAD</p>
-                      <p>per month</p>
+                      <p>per year</p>
                     </div>
                   </div>
+                  {tier.priceMonthly > 0 && (
+                    <p class="mt-2 text-sm/6 text-gray-950/50">That's just ${tier.priceMonthly}/month</p>
+                  )}
                   <div class="mt-8">
                     <Button href={tier.href}>Get started</Button>
                   </div>
@@ -117,7 +122,6 @@ const tiers = [
             </div>
           ))}
         </div>
-        <LogoCloud class="mt-24" />
       </Container>
     </div>
     <PricingTable client:load />
@@ -137,15 +141,16 @@ const tiers = [
             <figure class="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
               <blockquote>
                 <p class="relative text-3xl tracking-tight text-white before:absolute before:-translate-x-full before:content-['\201C'] after:absolute after:content-['\201D'] lg:text-4xl">
-                  Thanks to Slackwater, we&apos;re finding new leads that we never
-                  would have found with legal methods.
+                  Slackwater showed me exactly how to withdraw from my accounts in the
+                  most tax-efficient way. I had no idea I was leaving so much money on
+                  the table.
                 </p>
               </blockquote>
               <figcaption class="mt-auto">
-                <p class="text-sm/6 font-medium text-white">Tina Yards</p>
+                <p class="text-sm/6 font-medium text-white">Sarah Mitchell</p>
                 <p class="text-sm/6 font-medium">
                   <span class="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-                    VP of Sales, Protocol
+                    Retired Teacher, Ontario
                   </span>
                 </p>
               </figcaption>
@@ -160,58 +165,49 @@ const tiers = [
         <Heading as="div" class="mt-2 text-center">Your questions answered.</Heading>
         <div class="mx-auto mt-16 mb-32 max-w-xl space-y-12">
           <dl>
-            <dt class="text-sm font-semibold">What measures are in place to ensure the security of our data?</dt>
+            <dt class="text-sm font-semibold">How does Slackwater calculate my retirement projections?</dt>
             <dd class="mt-4 text-sm/6 text-gray-600">
-              Data security is a top priority for us, which is ironic given that
-              our business depends on others not taking it very seriously. We
-              understand that any breach could put both us and most of our
-              customers out of business—and behind bars. We employ robust
-              security measures, including data encryption, secure data centers,
-              and regular security audits to ensure this never happens.
+              Slackwater uses your current income, savings rate, investment
+              balances, and expected returns to project when you can retire and
+              how much annual income you'll have. As you update your balances
+              over time, your projections become more and more accurate.
             </dd>
           </dl>
           <dl>
-            <dt class="text-sm font-semibold">Is there a mobile app available for your platform?</dt>
+            <dt class="text-sm font-semibold">What's the difference between the withdrawal strategies on each plan?</dt>
             <dd class="mt-4 text-sm/6 text-gray-600">
-              Yes, we offer a mobile app that provides all the key
-              functionalities of our desktop platform, allowing sales reps to
-              manage deals on the go. Additionally, we have another app
-              pre-installed on most modern smartphones that allows us to track
-              your location, listen to your conversations, and access your
-              camera and microphone at any time. This app is not available for
-              download.
+              The Starter plan uses standard withdrawal strategies. The Pro plan
+              unlocks advanced strategies like variable percentage withdrawal and
+              guardrails-based approaches that can significantly reduce your tax
+              burden — potentially saving around $200K over your retirement. The
+              Smart plan uses a fully optimized, personalized withdrawal sequence
+              that could save $500K to $1M or more in lifetime taxes.
             </dd>
           </dl>
           <dl>
-            <dt class="text-sm font-semibold">Can I customize the workflow to match our company's deal process?</dt>
+            <dt class="text-sm font-semibold">Is there a mobile app available?</dt>
             <dd class="mt-4 text-sm/6 text-gray-600">
-              Yes, our platform is highly customizable, although there should be
-              no need. Before you sign up, we discreetly gather information
-              about your company and its processes from a variety of sources. We
-              then use this information to pre-configure the platform to match
-              your existing workflows. This is why we ask for your social
-              security number and access to your email account during the
-              sign-up process.
+              Yes, Slackwater has a mobile app and an Apple Watch app with
+              complications so you can check your retirement plan at a glance.
+              Widgets and the Watch app are available on the Pro and Smart plans.
             </dd>
           </dl>
           <dl>
-            <dt class="text-sm font-semibold">What kind of support do you offer?</dt>
+            <dt class="text-sm font-semibold">How does the retirement paycheque view work?</dt>
             <dd class="mt-4 text-sm/6 text-gray-600">
-              We offer comprehensive support through multiple channels,
-              including 24/7 live chat, email, and phone support. However, since
-              we have full access to your internal network, we will know if
-              you're having issues before you do.
+              Once you enter retirement mode, your dashboard transforms into a
+              paycheque-style view. It tells you exactly which accounts to pull
+              from each month, how much to withdraw, and adjusts automatically
+              based on market performance to keep you on track.
             </dd>
           </dl>
           <dl>
-            <dt class="text-sm font-semibold">Can I integrate the CRM with other sales intelligence tools?</dt>
+            <dt class="text-sm font-semibold">Is my financial data secure?</dt>
             <dd class="mt-4 text-sm/6 text-gray-600">
-              Yes, our solution integrates seamlessly with a variety of other
-              systems. However, be warned that most of these integrations are
-              short-lived. We have a dedicated team of engineers who
-              reverse-engineer the APIs of other tools, enabling us to build
-              their functionality into our product and eventually put them out
-              of business.
+              Absolutely. Your data is encrypted at rest and in transit. We never
+              sell your data or share it with third parties. Slackwater is a
+              planning tool — we don't connect to your bank accounts or have
+              access to your money.
             </dd>
           </dl>
         </div>

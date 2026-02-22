@@ -10,21 +10,21 @@ export function DarkBentoSection() {
           data-dark="true"
           className="font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase data-dark:text-gray-400"
         >
-          Outreach
+          Retirement
         </h2>
         <h3
           data-dark="true"
           className="mt-2 max-w-3xl text-4xl font-medium tracking-tighter text-pretty text-gray-950 data-dark:text-white sm:text-6xl"
         >
-          Customer outreach has never been easier.
+          Your retirement paycheque, optimized.
         </h3>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <BentoCard
             dark
-            eyebrow="Networking"
-            title="Sell at the speed of light"
-            description="Our Slackwater chat assistants analyze the sentiment of your conversations in real time, ensuring you're always one step ahead."
+            eyebrow="Withdrawals"
+            title="Tax-optimized withdrawal plan"
+            description="Slackwater builds a withdrawal strategy across your RRSP, TFSA, and non-registered accounts that minimizes taxes and maximizes your spending power."
             graphic={
               <div className="h-80 bg-[url(/screenshots/networking.png)] bg-[size:851px_344px] bg-no-repeat" />
             }
@@ -33,25 +33,25 @@ export function DarkBentoSection() {
           />
           <BentoCard
             dark
-            eyebrow="Integrations"
-            title="Meet leads where they are"
-            description="With thousands of integrations, no one will be able to escape your cold outreach."
+            eyebrow="Safety"
+            title="Built on safe withdrawal rates"
+            description="Every plan is grounded in proven safe withdrawal rate research, ensuring your money lasts as long as you do."
             graphic={<LogoTimeline />}
             className="z-10 overflow-visible! lg:col-span-2 lg:rounded-tr-4xl"
           />
           <BentoCard
             dark
-            eyebrow="Meetings"
-            title="Smart call scheduling"
-            description="Automatically insert intro calls into your leads' calendars without their consent."
+            eyebrow="Adaptive"
+            title="Responds to the market"
+            description="When markets rise or fall, Slackwater adjusts your withdrawal amounts so you stay on track without sacrificing your lifestyle."
             graphic={<LinkedAvatars />}
             className="lg:col-span-2 lg:rounded-bl-4xl"
           />
           <BentoCard
             dark
-            eyebrow="Engagement"
-            title="Become a thought leader"
-            description="Slackwater automatically writes LinkedIn posts that relate current events to B2B sales, helping you build a reputation as a thought leader."
+            eyebrow="Paycheque"
+            title="Your retirement paycheque"
+            description="In retirement, your dashboard becomes a paycheque view — showing exactly which accounts to pull from, how much to withdraw, and when. Retirement income, simplified."
             graphic={
               <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-[size:851px_344px] bg-no-repeat" />
             }
