@@ -24,7 +24,7 @@ export function DarkBentoSection() {
             dark
             eyebrow="Networking"
             title="Sell at the speed of light"
-            description="Our RadiantAI chat assistants analyze the sentiment of your conversations in real time, ensuring you're always one step ahead."
+            description="Our Slackwater chat assistants analyze the sentiment of your conversations in real time, ensuring you're always one step ahead."
             graphic={
               <div className="h-80 bg-[url(/screenshots/networking.png)] bg-[size:851px_344px] bg-no-repeat" />
             }
@@ -51,7 +51,7 @@ export function DarkBentoSection() {
             dark
             eyebrow="Engagement"
             title="Become a thought leader"
-            description="RadiantAI automatically writes LinkedIn posts that relate current events to B2B sales, helping you build a reputation as a thought leader."
+            description="Slackwater automatically writes LinkedIn posts that relate current events to B2B sales, helping you build a reputation as a thought leader."
             graphic={
               <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-[size:851px_344px] bg-no-repeat" />
             }

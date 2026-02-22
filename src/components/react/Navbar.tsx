@@ -59,7 +59,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-2">
       <RocketLaunchIcon className="h-8 w-8 text-cyan-500" />
-      <span className="text-3xl">Foos</span>
+      <span className="text-3xl">Slackwater</span>
     </div>
   )
 }

@@ -2,10 +2,10 @@ import { getCollection } from 'astro:content'
 import { Feed } from 'feed'
 
 export async function GET() {
-  let siteUrl = 'https://foos.ca'
+  let siteUrl = 'https://slackwater.ca'
 
   let feed = new Feed({
-    title: 'The Foos Blog',
+    title: 'The Slackwater Blog',
     description:
       'Stay informed with product updates, company news, and insights on how to sell smarter at your company.',
     author: {
