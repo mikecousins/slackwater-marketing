@@ -32,7 +32,7 @@ export async function getFeaturedPosts(quantity: number) {
 
 export async function getPost(slug: string) {
   const posts = await getCollection('blog')
-  return posts.find((post) => post.slug === slug)
+  return posts.find((post) => post.id === slug)
 }
 
 export async function getCategories() {

@@ -32,8 +32,8 @@ export async function GET() {
     .forEach((post) => {
       feed.addItem({
         title: post.data.title,
-        id: post.slug,
-        link: `${siteUrl}/blog/${post.slug}`,
+        id: post.id,
+        link: `${siteUrl}/blog/${post.id}`,
         content: post.data.excerpt,
         image: post.data.mainImage
           ? `${siteUrl}${post.data.mainImage.src}`
