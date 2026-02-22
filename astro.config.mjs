@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://foos.ca',
+  site: 'https://slackwater.ca',
   output: 'static',
   integrations: [react(), mdx(), sitemap()],
 })

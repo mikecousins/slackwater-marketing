@@ -11,7 +11,7 @@ const tiers = [
   {
     name: 'Starter' as const,
     slug: 'starter',
-    href: 'https://app.foos.ca',
+    href: 'https://app.slackwater.ca',
     features: [
       { section: 'Features', name: 'Accounts', value: 3 },
       { section: 'Features', name: 'Deal progress boards', value: 5 },
@@ -28,7 +28,7 @@ const tiers = [
   {
     name: 'Pro' as const,
     slug: 'pro',
-    href: 'https://app.foos.ca',
+    href: 'https://app.slackwater.ca',
     features: [
       { section: 'Features', name: 'Accounts', value: 10 },
       { section: 'Features', name: 'Deal progress boards', value: 'Unlimited' },
@@ -45,7 +45,7 @@ const tiers = [
   {
     name: 'Smart' as const,
     slug: 'smart',
-    href: 'https://app.foos.ca',
+    href: 'https://app.slackwater.ca',
     features: [
       { section: 'Features', name: 'Accounts', value: 'Unlimited' },
       { section: 'Features', name: 'Deal progress boards', value: 'Unlimited' },
